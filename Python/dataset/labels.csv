@@ -1,0 +1,9 @@
+filepath,label
+dataset/.\original\Cat_August_2010-4.jpg,Original
+dataset/.\salt_pepper\Cat_August_2010-4.jpg,Salt & Pepper
+dataset/.\gaussian\Cat_August_2010-4.jpg,Gaussian
+dataset/.\uniform\Cat_August_2010-4.jpg,Uniform
+dataset/.\original\michael-sum-LEpfefQf4rU-unsplash.jpg,Original
+dataset/.\salt_pepper\michael-sum-LEpfefQf4rU-unsplash.jpg,Salt & Pepper
+dataset/.\gaussian\michael-sum-LEpfefQf4rU-unsplash.jpg,Gaussian
+dataset/.\uniform\michael-sum-LEpfefQf4rU-unsplash.jpg,Uniform
