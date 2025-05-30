@@ -1,3 +1,4 @@
 ./Python/venv/
 ./Python/dataset/
 *.jpg
+*.csv
