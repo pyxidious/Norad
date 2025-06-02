@@ -1,6 +1,7 @@
 ./Python/venv/
 ./Python/dataset/
 *.jpg
+<<<<<<< HEAD
 *.png
 *.csv
 *.h5
