@@ -10,7 +10,7 @@ end
 fullFileName = matlab.desktop.editor.getActiveFilename;
 folderPath = fileparts(fullFileName);
 folderPath = strrep(folderPath, 'MatLab', ''); % Rimuove "MatLab" dalla stringa percorso
-folderPath = fullfile(folderPath, 'MatLab', 'Test'); % Costruisce il percorso completo
+folderPath = fullfile(folderPath, 'MatLab', 'Immagini'); % Costruisce il percorso completo
 
 extensions = {'*.jpg', '*.png', '*.tiff'};
 output = [];

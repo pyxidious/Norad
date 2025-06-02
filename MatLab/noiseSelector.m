@@ -8,5 +8,9 @@ if strcmpi(rumore, 'sp') % Non è CaseSensitive
     final = saltpepperNoiseRemover(i);
 end
 
+if strcmpi(rumore, 'periodic') % Non è CaseSensitive
+    final = periodicNoiseRemover(i);
+end
+
 output = final;
 end
