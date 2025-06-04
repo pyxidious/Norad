@@ -4,11 +4,11 @@ i = imageReader(nome_img);
 if strcmpi(rumore, 'gaussian') % Non è CaseSensitive
     final = gaussNoiseRemover(i);
 end
-if strcmpi(rumore, 'sp') % Non è CaseSensitive
+if strcmpi(rumore, 'sp')
     final = saltpepperNoiseRemover(i);
 end
 
-if strcmpi(rumore, 'periodic') % Non è CaseSensitive
+if strcmpi(rumore, 'periodic')
     final = periodicNoiseRemover(i);
 end
 
