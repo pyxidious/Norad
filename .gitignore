@@ -1,7 +1,7 @@
 ./Python/venv/
 ./Python/dataset/
-*.jpg
 <<<<<<< HEAD
-*.png
-*.csv
-*.h5
+Python/**/*.jpg
+Python/**/*.png
+Python/**/*.csv
+Python/**/*.h5
