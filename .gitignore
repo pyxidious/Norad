@@ -1,5 +1,6 @@
 ./Python/venv/
 ./Python/dataset/
+./Python/*.jpg
 <<<<<<< HEAD
 Python/**/*.jpg
 Python/**/*.png
