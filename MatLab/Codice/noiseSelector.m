@@ -12,8 +12,12 @@ if strcmpi(rumore, 'periodic')
     final = periodicNoiseRemover(i);
 end
 
-if strcmpi(rumore, 'striping')
-    final = stripingNoiseRemover(i);
+if strcmpi(rumore, 'vstriping')
+    final = verticalStripingNoiseRemover(i);
+end
+
+if strcmpi(rumore, 'hstriping')
+    final = horizontalStripingNoiseRemover(i);
 end
 
 output = final;
