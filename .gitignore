@@ -2,7 +2,6 @@
 ./Python/dataset/
 ./Python/*.jpg
 <<<<<<< HEAD
-Python/**/*.jpg
-Python/**/*.png
-Python/**/*.csv
-Python/**/*.h5
+./Python/*.png
+./Python/*.csv
+./Python/*.h5
