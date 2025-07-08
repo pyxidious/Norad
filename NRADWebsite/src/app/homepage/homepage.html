@@ -1,0 +1,53 @@
+<header class="custom-header">
+  <div class="header-content">
+    <img src="./homepage/header.png" alt="Logo Noise Denoising" class="header-logo" />
+    <div class="header-text">
+      <h1>Noise Recognition and Denoising</h1>
+      <p>AI-based image noise detection and enhancement</p>
+    </div>
+  </div>
+</header>
+
+<section class="project-description">
+  <div class="container">
+    <h2>About This Project</h2>
+    <h4>AI-Powered Image Noise Recognition & Denoising</h4>
+    <p>
+      This project leverages a <strong>state-of-the-art AI model</strong> trained on a <strong>vast dataset of images</strong>. It automatically recognizes <strong>noise patterns</strong> and applies <strong>algorithms</strong> to remove noise, enhancing <strong>image clarity and quality</strong>.<br /><br />
+      The project was developed by <strong>Tommaso Senatori</strong> and <strong>Emilio Martis</strong> for the course <em>Laboratorio di Multimedialità</em> at <strong>Università di Roma Tre</strong>.
+    </p>
+
+  </div>
+</section>
+
+<section class="upload-section">
+  <div class="upload-content">
+    <div class="upload-image">
+      <img src="./homepage/upload.png" alt="Upload Illustration" />
+    </div>
+    <div class="upload-text">
+      <h2>Upload Your Image</h2>
+      <p>Select an image affected by noise to apply the denoising algorithm and view the enhanced result.</p>
+      <label class="upload-button">
+        <input type="file" accept="image/*" (change)="onFileSelected($event)" hidden />
+        Choose Image
+      </label>
+    </div>
+  </div>
+</section>
+
+<!-- Sezione separata per la preview -->
+<section *ngIf="imagePreviewUrl" class="image-preview-section">
+  <div class="container">
+    <h3>Image Preview</h3>
+    <img [src]="imagePreviewUrl" alt="Image Preview" />
+
+    <div class="enhance-button-wrapper">
+      <button class="enhance-button" (click)="onEnhance()">
+        <i class="fas fa-magic"></i>
+        Enhance Image
+      </button>
+    </div>
+  </div>
+</section>
+
