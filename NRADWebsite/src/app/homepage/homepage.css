@@ -1,0 +1,136 @@
+.custom-header {
+  background-color: #f5f5f5;
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  text-align: center;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.preview-static-image {
+  width: 64px; /* oppure 48px se la vuoi più piccola */
+  height: auto;
+  border: none;
+  box-shadow: none;
+  object-fit: contain;
+}
+
+.header-content {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 1000px;
+  width: 100%;
+}
+
+.header-logo {
+  height: 80px;
+  width: auto;
+  object-fit: contain;
+}
+
+.header-text h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #222;
+}
+
+.header-text p {
+  margin: 0.5rem 0 0;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.upload-section {
+  background-color: #ffffff;
+  padding: 3rem 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.upload-content {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  max-width: 1100px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.upload-image img {
+  max-width: 150px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.upload-text {
+  flex: 1;
+}
+
+.upload-text h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
+.upload-text p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+.upload-button {
+  display: inline-block;
+  background-color: #007acc;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.upload-button:hover {
+  background-color: #005fa3;
+}
+
+/* Project Section */
+
+.project-description {
+  background-color: #ffffff;
+  padding: 3rem 1rem;
+  text-align: center;
+  color: #333;
+}
+
+.project-description .container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.project-description h2 {
+  font-size: 2rem;
+  margin-bottom: 0.3rem;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.project-description h4 {
+  font-weight: 500;
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  color: #16a085;
+}
+
+.project-description p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #555;
+  margin: 0 auto;
+  max-width: 700px;
+}

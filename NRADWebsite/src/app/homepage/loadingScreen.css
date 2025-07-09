@@ -1,0 +1,54 @@
+/*
+    Loading Screen
+ */
+
+.matlab-loading-wrapper {
+  display: flex;
+  align-items: center;       /* allinea verticalmente spinner+immagine e testo */
+  justify-content: center;   /* centra orizzontalmente tutto il contenuto */
+  gap: 1rem;                 /* spazio tra spinner+img e testo */
+  height: 25vh;             /* altezza container per centrare verticalmente nella pagina */
+  width: 100%;               /* larghezza piena */
+  box-sizing: border-box;    /* evita overflow */
+}
+
+.spinner-wrapper {
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+
+.spinner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 64px;
+  height: 64px;
+  border: 5px solid #ccc;
+  border-top-color: #1e4b99;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  z-index: 1;
+}
+
+.preview-static-image2 {
+  position: absolute;
+  top: 53%;
+  left: 59%;
+  width: 38px;
+  height: 38px;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.loading-text {
+  font-size: 1.1rem;
+  color: #1e4b99;
+  font-weight: 600;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

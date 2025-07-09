@@ -1,0 +1,98 @@
+<header class="custom-header">
+  <div class="header-content">
+    <img src="./homepage/header.png" alt="Logo Noise Denoising" class="header-logo" />
+    <div class="header-text">
+      <h1>Noise Recognition and Denoising</h1>
+      <p>AI-based image noise detection and enhancement</p>
+    </div>
+  </div>
+</header>
+
+<section class="project-description">
+  <div class="container">
+    <h2>About This Project</h2>
+    <h4>AI-Powered Image Noise Recognition & Denoising</h4>
+    <p>
+      This project leverages a <strong>state-of-the-art AI model</strong> trained on a <strong>vast dataset of images</strong>. It automatically recognizes <strong>noise patterns</strong> and applies <strong>algorithms</strong> to remove noise, enhancing <strong>image clarity and quality</strong>.<br /><br />
+      The project was developed by <strong>Tommaso Senatori</strong> and <strong>Emilio Martis</strong> for the course <em>Laboratorio di Multimedialità</em> at <strong>Università di Roma Tre</strong>.
+    </p>
+
+  </div>
+</section>
+
+<section class="upload-section">
+  <div class="upload-content">
+    <div class="upload-image">
+      <img src="./homepage/upload.png" alt="Upload Illustration" />
+    </div>
+    <div class="upload-text">
+      <h2>Upload Your Image</h2>
+      <p>Select an image affected by noise to apply the denoising algorithm and view the enhanced result.</p>
+      <label class="upload-button">
+        <input type="file" accept="image/*" (change)="onFileSelected($event)" hidden />
+        Choose Image
+      </label>
+    </div>
+  </div>
+</section>
+
+<!-- Sezione separata per la preview -->
+<section *ngIf="imagePreviewUrl" class="image-preview-section">
+  <div class="container">
+    <h2 class="preview-title">Selected Image</h2>
+    <p class="preview-subtitle">Preview of the uploaded image before denoising.</p>
+
+    <img [src]="imagePreviewUrl" alt="Image Preview" />
+
+    <div class="enhance-button-wrapper">
+      <button *ngIf="!showMatlabResult" class="enhance-button" (click)="onEnhance()">
+        <i class="fas fa-eraser"></i>
+        Denoise Image
+      </button>
+    </div>
+  </div>
+</section>
+
+
+<!-- Sezione immagine MATLAB -->
+<div class="matlab-image-container" *ngIf="showMatlabResult">
+
+  <!-- Spinner durante l'attesa -->
+  <div class="matlab-loading-wrapper" *ngIf="loadingMatlab"  id="computingSection">
+    <div class="spinner-wrapper">
+      <div class="spinner"></div>
+      <img src="./homepage/thinking.png" alt="Immagine in elaborazione" class="preview-static-image2" />
+    </div>
+    <div class="loading-text">
+      Computing denoising...
+    </div>
+  </div>
+
+  <div  *ngIf="!loadingMatlab" class="result">
+    <div  *ngIf="!loadingMatlab" class="result-predictions">
+      <div *ngIf="predictions && predictions.length > 0" class="predictions-container">
+        <h4>Detected noise types</h4>
+        <p>
+          The identified noise type is <strong>{{ predictions[0].label }}</strong> with a confidence of
+          <strong>{{ (predictions[0].confidence * 100) | number:'1.0-2' }}%</strong>.
+        </p>
+        <ul>
+          <li *ngFor="let p of predictions" class="prediction-item">
+            <strong>{{ p.label }}</strong>
+            <span class="confidence">{{ (p.confidence * 100) | number:'1.0-2' }}%</span>
+            <div class="confidence-bar">
+              <div class="confidence-fill" [style.width.%]="p.confidence * 100"></div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="matlab-title">Denoised Image</h3>
+    <p class="matlab-subtitle">Result processed by the MATLAB enhancement module</p>
+    <img [src]="'data:image/png;base64,' + matlabOutputBase64" alt="Immagine elaborata da MATLAB"  id="results"/>
+  </div>
+</div>
+
+
+

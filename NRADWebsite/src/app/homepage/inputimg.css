@@ -1,0 +1,58 @@
+.image-preview-section {
+  text-align: center;
+  padding: 0 0;
+}
+
+.image-preview-section .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.image-preview-section img {
+  max-width: 600px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.enhance-button-wrapper {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.enhance-button {
+  cursor: pointer;
+  padding: 0.8rem 1.2rem;
+  font-size: 1rem;
+  border: none;
+  background-color: #1e4b99;
+  color: white;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.enhance-button i {
+  padding-right: 6px;
+}
+
+.enhance-button:hover {
+  background-color: #16407a;
+}
+
+.preview-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1e4b99;
+  margin-bottom: 0.2rem; /* Ridotto da 0.5rem */
+}
+
+.preview-subtitle {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+  margin-top: 0; /* Nessun margine superiore */
+}
+
