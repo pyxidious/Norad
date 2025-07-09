@@ -50,8 +50,6 @@ numD     = numel(D_values);
 
 % Prealloca array per le metriche e le immagini filtrate
 NIQEs    = zeros(1, numD);
-BRISQUEs = zeros(1, numD);
-PIQEs    = zeros(1, numD);
 I_filt_all_rgb = cell(1, numD);
 
 % 8) Loop su ciascun valore di d: filtro notch + calcolo metriche
@@ -93,8 +91,6 @@ for k = 1:numD
     
     % Calcola metriche no-reference sull’immagine RGB ricostruita
     NIQEs(k)    = niqe(I_rec_rgb);
-    BRISQUEs(k) = brisque(I_rec_rgb);
-    PIQEs(k)    = piqe(I_rec_rgb);
 end
 [~, idx_best] = min(NIQEs);  % o BRISQUEs, o combinazione
 best_img = I_filt_all_rgb{idx_best};

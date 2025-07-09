@@ -1,10 +1,6 @@
-function [output] = noiseSelector(i, rumore)
-    disp(">> noiseSelector START <<");
-    disp("Tipo rumore: " + rumore);
-    disp(size(i));
-
+function [output, niqe_noise, niqe_denoised] = noiseSelector(i, rumore)
     if strcmpi(rumore, 'erlang_rayleigh')
-        final = erlangRayleighNoiseRemover(i);
+        final = gamma_noiseremover(i);
     elseif strcmpi(rumore, 'gaussian')
         final = gaussNoiseRemover(i);
     elseif strcmpi(rumore, 'original')
@@ -14,7 +10,7 @@ function [output] = noiseSelector(i, rumore)
     elseif strcmpi(rumore, 'salt_pepper')
         final = saltpepperNoiseRemover(i);
     elseif strcmpi(rumore, 'speckle')
-        final = speckleNoiseRemover(i);
+        final = Lee_filter(i, 5);
     elseif strcmpi(rumore, 'striping_horizontal')
         final = horizontalStripingNoiseRemover(i);
     elseif strcmpi(rumore, 'striping_vertical')
@@ -39,6 +35,8 @@ function [output] = noiseSelector(i, rumore)
 
     % Restituisci stringa base64
     output = encoded;
+    niqe_noise = niqe(i);
+    niqe_denoised = niqe(final);
 
     % Cancella file temporaneo
     delete(tempFileName);
