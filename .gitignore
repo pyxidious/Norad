@@ -5,3 +5,4 @@ Python/**/*.jpg
 Python/**/*.png
 Python/**/*.csv
 Python/**/*.h5
+tf-env

@@ -9,6 +9,14 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+.preview-static-image {
+  width: 64px; /* oppure 48px se la vuoi più piccola */
+  height: auto;
+  border: none;
+  box-shadow: none;
+  object-fit: contain;
+}
+
 .header-content {
   display: flex;
   text-align: center;
@@ -91,96 +99,6 @@
   background-color: #005fa3;
 }
 
-.image-preview img {
-  margin-top: 1rem;
-  max-width: 100%;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.image-preview-section {
-  padding: 2rem 1rem;
-  background-color: #f9f9f9;
-  text-align: center;
-}
-
-.image-preview-section h3 {
-  font-size: 1.5rem;
-  color: #333;
-  margin-bottom: 1rem;
-}
-
-.image-preview-section img {
-  max-width: 25%;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.image-preview-section {
-  padding: 2.5rem 1rem;
-  background-color: #f9f9f9;
-  text-align: center;
-}
-
-.image-preview-section h3 {
-  font-size: 1.5rem;
-  color: #333;
-  margin-bottom: 1.2rem;
-}
-
-.image-preview-section img {
-  max-width: 100%;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1.5rem;
-}
-
-.image-preview-section {
-  padding: 2.5rem 1rem;
-  background-color: #f9f9f9;
-  text-align: center;
-}
-
-.image-preview-section h3 {
-  font-size: 1.6rem;
-  color: #333;
-  margin-bottom: 1.2rem;
-}
-
-.image-preview-section img {
-  max-width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  margin-bottom: 2rem;
-}
-
-/* Wrapper per centrare meglio il pulsante */
-.enhance-button-wrapper {
-  display: flex;
-  justify-content: center;
-}
-
-.enhance-button {
-  background: linear-gradient(135deg, #4caf50, #2e7d32);
-  color: white;
-  padding: 0.8rem 2rem;
-  font-size: 1rem;
-  font-weight: bold;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  box-shadow: 0 6px 14px rgba(76, 175, 80, 0.3);
-}
-
-.enhance-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 18px rgba(46, 125, 50, 0.4);
-}
-
 /* Project Section */
 
 .project-description {
@@ -216,4 +134,3 @@
   margin: 0 auto;
   max-width: 700px;
 }
-

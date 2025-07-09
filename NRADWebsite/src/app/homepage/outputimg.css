@@ -1,0 +1,77 @@
+.result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-items: center;
+  justify-content: center;
+  padding-bottom: 150px;
+}
+
+.matlab-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #1e4b99;
+}
+
+.matlab-subtitle {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.result img {
+  max-width: 600px;
+  width: 100%;
+  height: auto;
+}
+
+.result-predictions {
+  background-color: #f0f4ff; /* sfondo azzurrino chiaro */
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 1.5rem 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  justify-items: center;
+  justify-content: center;
+}
+
+
+.predictions-container {
+  width: 40%;
+  font-family: Arial, sans-serif;
+  padding: 1.5rem 0;
+}
+
+.predictions-container ul {
+  list-style: none;
+  padding-left: 0; /* rimuove il padding a sinistra tipico delle liste */
+  margin: 0; /* opzionale, per rimuovere margine */
+}
+
+.prediction-item {
+  margin-bottom: 0.8rem;
+}
+
+.confidence {
+  margin-left: 0.5rem;
+  color: #666;
+  font-weight: 600;
+}
+
+.confidence-bar {
+  width: 100%;
+  height: 8px;
+  background: #eee;
+  border-radius: 4px;
+  margin-top: 4px;
+  overflow: hidden;
+}
+
+.confidence-fill {
+  height: 100%;
+  background: #1e4b99;
+  border-radius: 4px 0 0 4px;
+}

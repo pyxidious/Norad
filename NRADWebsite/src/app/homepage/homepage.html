@@ -39,15 +39,60 @@
 <!-- Sezione separata per la preview -->
 <section *ngIf="imagePreviewUrl" class="image-preview-section">
   <div class="container">
-    <h3>Image Preview</h3>
+    <h2 class="preview-title">Selected Image</h2>
+    <p class="preview-subtitle">Preview of the uploaded image before denoising.</p>
+
     <img [src]="imagePreviewUrl" alt="Image Preview" />
 
     <div class="enhance-button-wrapper">
-      <button class="enhance-button" (click)="onEnhance()">
-        <i class="fas fa-magic"></i>
-        Enhance Image
+      <button *ngIf="!showMatlabResult" class="enhance-button" (click)="onEnhance()">
+        <i class="fas fa-eraser"></i>
+        Denoise Image
       </button>
     </div>
   </div>
 </section>
+
+
+<!-- Sezione immagine MATLAB -->
+<div class="matlab-image-container" *ngIf="showMatlabResult">
+
+  <!-- Spinner durante l'attesa -->
+  <div class="matlab-loading-wrapper" *ngIf="loadingMatlab"  id="computingSection">
+    <div class="spinner-wrapper">
+      <div class="spinner"></div>
+      <img src="./homepage/thinking.png" alt="Immagine in elaborazione" class="preview-static-image2" />
+    </div>
+    <div class="loading-text">
+      Computing denoising...
+    </div>
+  </div>
+
+  <div  *ngIf="!loadingMatlab" class="result">
+    <div  *ngIf="!loadingMatlab" class="result-predictions">
+      <div *ngIf="predictions && predictions.length > 0" class="predictions-container">
+        <h4>Detected noise types</h4>
+        <p>
+          The identified noise type is <strong>{{ predictions[0].label }}</strong> with a confidence of
+          <strong>{{ (predictions[0].confidence * 100) | number:'1.0-2' }}%</strong>.
+        </p>
+        <ul>
+          <li *ngFor="let p of predictions" class="prediction-item">
+            <strong>{{ p.label }}</strong>
+            <span class="confidence">{{ (p.confidence * 100) | number:'1.0-2' }}%</span>
+            <div class="confidence-bar">
+              <div class="confidence-fill" [style.width.%]="p.confidence * 100"></div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="matlab-title">Denoised Image</h3>
+    <p class="matlab-subtitle">Result processed by the MATLAB enhancement module</p>
+    <img [src]="'data:image/png;base64,' + matlabOutputBase64" alt="Immagine elaborata da MATLAB"  id="results"/>
+  </div>
+</div>
+
+
 
