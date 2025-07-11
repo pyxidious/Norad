@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {DecimalPipe, NgForOf, NgIf} from '@angular/common';
+import {DecimalPipe, NgClass, NgForOf, NgIf} from '@angular/common';
 import { imageService, Prediction } from '../services/imageService'; // <-- importa qui
 
 
@@ -8,7 +8,8 @@ import { imageService, Prediction } from '../services/imageService'; // <-- impo
   imports: [
     NgIf,
     DecimalPipe,
-    NgForOf
+    NgForOf,
+    NgClass
   ],
   templateUrl: './homepage.html',
   styleUrls: ['./homepage.css', './inputimg.css', './loadingScreen.css', './outputimg.css'],
@@ -20,6 +21,8 @@ export class Homepage {
   matlabOutputBase64: string | null = null;
   loadingMatlab = false;
   showMatlabResult = false;
+  niqeNoise: number | null = null;
+  niqeDenoised: number | null = null;
   private shouldScroll = false;
 
   constructor(private imageService: imageService) {}
@@ -55,10 +58,16 @@ export class Homepage {
       }, 0);
 
       this.imageService.predictImage(this.selectedFile).subscribe({
-        next: (res: { predictions: Prediction[] | null; matlab_output?: string | null }) => {
-          this.predictions = res.predictions;
+        next: (res: {
+          predictions: Prediction[] | null;
+          matlab_output?: string | null;
+          niqe_noise?: number;
+          niqe_denoised?: number;
+        }) => {          this.predictions = res.predictions;
           console.log('Predizioni ricevute:', this.predictions);
           this.matlabOutputBase64 = res.matlab_output || null;
+          this.niqeNoise = res.niqe_noise ?? null;
+          this.niqeDenoised = res.niqe_denoised ?? null;
           this.loadingMatlab = false;
 
           setTimeout(() => {
@@ -77,4 +86,19 @@ export class Homepage {
       });
     }
   }
+
+  getNiqeWidth(score: number): number {
+    const clamped = Math.min(Math.max(score, 0), 20);
+    return ((20 - clamped) / 20) * 100;
+  }
+
+  getQualityClass(niqe: number): string {
+    if (niqe < 3) return 'fa-solid fa-trophy quality-excellent';
+    if (niqe < 5) return 'fa-solid fa-thumbs-up quality-good';
+    if (niqe < 7) return 'fa-solid fa-eye quality-medium';
+    if (niqe < 9) return 'fa-solid fa-triangle-exclamation quality-poor';
+    return 'fa-solid fa-skull-crossbones quality-terrible';
+  }
+
+
 }

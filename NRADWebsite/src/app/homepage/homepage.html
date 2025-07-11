@@ -92,6 +92,54 @@
     <p class="matlab-subtitle">Result processed by the MATLAB enhancement module</p>
     <img [src]="'data:image/png;base64,' + matlabOutputBase64" alt="Immagine elaborata da MATLAB"  id="results"/>
   </div>
+
+  <div *ngIf="niqeNoise !== null && niqeDenoised !== null && !loadingMatlab" class="niqe-comparison-wrapper">
+    <div class="niqe-comparison">
+      <h4 class="niqe-title">NIQE Comparison</h4>
+      <p class="niqe-subtitle">Lower scores indicate better visual quality.</p>
+
+      <div class="niqe-bar-container">
+        <div class="niqe-label">Before</div>
+        <div class="niqe-bar-outer">
+          <div class="niqe-bar-inner" [style.width.%]="getNiqeWidth(niqeNoise)">
+            {{ niqeNoise | number:'1.2-2' }} <span [ngClass]="getQualityClass(niqeNoise)"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="niqe-bar-container">
+        <div class="niqe-label">After</div>
+        <div class="niqe-bar-outer">
+          <div class="niqe-bar-inner after" [style.width.%]="getNiqeWidth(niqeDenoised)">
+            {{ niqeDenoised | number:'1.2-2' }} <span [ngClass]="getQualityClass(niqeDenoised)"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="download-button-wrapper" *ngIf="matlabOutputBase64">
+      <a
+        [href]="'data:image/png;base64,' + matlabOutputBase64"
+        download="denoised_image.png"
+        class="download-button"
+      >
+        <i class="fas fa-download"></i>
+        Download Denoised Image
+      </a>
+    </div>
+
+    <div class="niqe-delta">
+      <i class="fa-solid fa-arrow-trend-down improvement-icon"></i>
+      <strong>Improvement:</strong>
+      <span class="delta-value">
+    {{ (niqeNoise - niqeDenoised) | number:'1.1-2' }}
+  </span>
+    </div>
+
+
+
+  </div>
+
 </div>
 
 
