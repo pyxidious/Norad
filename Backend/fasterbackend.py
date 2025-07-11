@@ -3,15 +3,12 @@ import io
 import time
 import traceback
 from pathlib import Path
-
 import numpy as np
 import matlab.engine
 from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
-import tensorflow as tf
-print(tf.__version__)
-from tensorflow.keras.models import load_model
-from tensorflow.keras.preprocessing.image import load_img, img_to_array
+from tensorflow.keras.models import load_model # type: ignore
+from tensorflow.keras.preprocessing.image import load_img, img_to_array # type: ignore
 
 # ========== CONFIGURAZIONE FASTAPI + CORS ==========
 app = FastAPI()
