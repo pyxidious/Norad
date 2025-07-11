@@ -5,7 +5,7 @@
   text-align: center;
   justify-items: center;
   justify-content: center;
-  padding-bottom: 150px;
+  padding-bottom: 50px;
 }
 
 .matlab-title {
@@ -75,3 +75,92 @@
   background: #1e4b99;
   border-radius: 4px 0 0 4px;
 }
+
+.niqe-comparison-wrapper {
+  width: 100%;
+  background: #f9f9f9;
+  padding: 2rem 0;
+}
+
+.niqe-comparison {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.niqe-title {
+  font-size: 1.4rem;
+  color: #1e4b99;
+  margin-bottom: 0.4rem;
+}
+
+.niqe-subtitle {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 1.4rem;
+}
+
+.niqe-bar-container {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.niqe-label {
+  width: 60px;
+  text-align: right;
+  font-weight: 600;
+  color: #444;
+}
+
+.niqe-bar-outer {
+  flex-grow: 1;
+  height: 28px;
+  background: #ddd;
+  border-radius: 14px;
+  overflow: hidden;
+  position: relative;
+}
+
+.niqe-bar-inner {
+  height: 100%;
+  line-height: 28px;
+  background: #ff9800;
+  color: #fff;
+  font-weight: 600;
+  text-align: center;
+  transition: width 1s ease;
+}
+
+.niqe-bar-inner.after {
+  background: #4caf50;
+}
+
+.download-button-wrapper {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.download-button {
+  display: inline-block;
+  background-color: #1e4b99;
+  color: white;
+  padding: 0.7rem 1.4rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.download-button:hover {
+  background-color: #153b7a;
+}
+
+.download-button i {
+  margin-right: 0.5rem;
+}
+
+.emoji-good { color: green; }
+.emoji-medium { color: orange; }
+.emoji-bad { color: red; }
