@@ -1,52 +1,52 @@
 # AI-Powered Image Denoising Platform
 
-Benvenuto nel repository del nostro progetto di **Image Denoising**.  
-Questa piattaforma consente a un utente di caricare un'immagine, identificare automaticamente il tipo di rumore presente tramite un modello di intelligenza artificiale, e rimuoverlo usando algoritmi di denoising sviluppati in MATLAB.
+Welcome to the repository of our **Image Denoising** project.  
+This platform allows users to upload a photo, automatically detect the type of noise using an AI model, and remove it using MATLAB-based denoising algorithms.
 
-## 🧠 Descrizione del Progetto
+## 🧠 Project Overview
 
-Il sistema è composto da tre componenti principali:
+The system is built using three main components:
 
 1. **Frontend Web (Angular)**  
-   Permette all’utente di caricare immagini e visualizzare i risultati del denoising.
+   Provides a user interface for uploading images and displaying the denoised results.
 
 2. **Backend (FastAPI in Python)**  
-   Gestisce la ricezione delle immagini, elabora l'immagine con un modello IA per identificare il tipo di rumore (es. Gaussian, Poisson, Salt-and-Pepper), e comunica con MATLAB per l'applicazione del filtro adeguato.
+   Handles image uploads, uses a deep learning model to classify the type of noise (e.g., Gaussian, Poisson, Salt-and-Pepper), and communicates with MATLAB for the actual denoising.
 
-3. **Motore Denoising (MATLAB)**  
-   Implementa algoritmi specifici per ciascun tipo di rumore rilevato e restituisce l'immagine denoised al backend.
+3. **Denoising Engine (MATLAB)**  
+   Applies the appropriate filtering technique based on the detected noise and returns the cleaned image.
 
-## 🖼️ Come Funziona
+## 🖼️ How It Works
 
-1. L'utente carica un’immagine tramite l’interfaccia web.
-2. Il backend elabora l'immagine con un modello di deep learning addestrato a classificare il tipo di rumore presente.
-3. Viene chiamato MATLAB per applicare il filtro di denoising appropriato (ad es. filtro Wiener, mediano, etc.).
-4. L’immagine denoised viene restituita all’utente e visualizzata nel browser.
+1. The user uploads an image via the web interface.
+2. The backend processes the image using a trained neural network to detect the noise type.
+3. Based on the detected noise, MATLAB is triggered to apply the corresponding denoising algorithm.
+4. The denoised image is returned and shown to the user.
 
-## 🔧 Tecnologie Utilizzate
+## 🔧 Technologies Used
 
 - **Frontend:** Angular
 - **Backend:** Python + FastAPI
-- **IA (Image Noise Classifier):** TensorFlow / Keras
+- **AI (Noise Classifier):** TensorFlow / Keras
 - **Denoising Engine:** MATLAB
-- **Comunicazione Python-MATLAB:** `matlab.engine`
-- **Server:** NGINX (per la versione distribuita)
+- **Python-MATLAB Communication:** `matlab.engine`
+- **Web Server:** NGINX (for deployment)
 
-## 🚀 Avvio del Progetto
+## 🚀 Getting Started
 
-### Prerequisiti
+### Prerequisites
 
 - Python ≥ 3.8
-- MATLAB installato con il MATLAB Engine API per Python
-- Node.js e Angular CLI
-- Modello IA già addestrato (`.h5`)
-- Server backend con FastAPI configurato
+- MATLAB with MATLAB Engine API for Python
+- Node.js + Angular CLI
+- Trained AI model (`.h5`)
+- FastAPI backend setup
 
-### Setup Backend
+### Backend Setup
 
 ```bash
 cd backend/
 python -m venv venv
-source venv/bin/activate  # Su Windows: venv\Scripts\activate
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 uvicorn main:app --reload
